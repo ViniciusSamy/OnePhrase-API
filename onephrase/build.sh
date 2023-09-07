@@ -1,3 +1,3 @@
 #!/bin/bash
 
-docker build -t api-onephrase .
+sudo docker build -t api-onephrase .
