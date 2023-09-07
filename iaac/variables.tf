@@ -29,3 +29,9 @@ variable ports {
         "api"   = "3000"
     }
 }
+
+variable keypair_path {
+    description = "Local path to .pub ssh key used to connect to EC2 instances"
+    type = string
+    default = "~/.ssh/id_rsa.pub"
+}
