@@ -10,9 +10,21 @@ resource "aws_subnet" "public" {
   vpc_id     = aws_vpc.main.id
   cidr_block = var.cidr["sub_pub"]
   map_public_ip_on_launch = true
+  availability_zone = "${var.region}a"
 
   tags = {
     Name = "${var.network_prefix}-public"
+  }
+}
+
+resource "aws_subnet" "public_2" {
+  vpc_id     = aws_vpc.main.id
+  cidr_block = var.cidr["sub_pub_2"]
+  map_public_ip_on_launch = true
+  availability_zone = "${var.region}b"
+
+  tags = {
+    Name = "${var.network_prefix}-public-2"
   }
 }
 

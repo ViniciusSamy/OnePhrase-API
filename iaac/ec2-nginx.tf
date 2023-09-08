@@ -7,7 +7,8 @@ resource "aws_instance" "nginx" {
   ami             = "ami-053b0d53c279acc90" 
   instance_type   = "t2.micro" 
   key_name        = aws_key_pair.onephrase_key.key_name  
-  security_groups = [ aws_security_group.nginx.id ]
+  #security_groups = [ aws_security_group.nginx.id ]
+  vpc_security_group_ids = [ aws_security_group.nginx.id ]
   subnet_id       = aws_subnet.public.id
 
   tags = {
@@ -26,7 +27,6 @@ resource "aws_instance" "nginx" {
                     
                     sed -i "s/SERVER_NAME_HERE/${var.api_servername}/g"  '02-onephrase.conf'
                     sed -i "s/API_IP_HERE/${aws_instance.api.private_ip}/g"   '02-onephrase.conf'
-                    sed -i "s/API_PORT_HERE/${var.ports["api"]}/g"  '02-onephrase.conf'
                     sed -i "s/API_PORT_HERE/${var.ports["api"]}/g"  '02-onephrase.conf'
                     
                     for file in *.conf; do
