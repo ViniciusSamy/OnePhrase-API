@@ -9,7 +9,7 @@ resource "aws_instance" "api" {
   key_name        = aws_key_pair.onephrase_key.key_name  
   #security_groups = [ aws_security_group.api.id ]
   vpc_security_group_ids = [ aws_security_group.api.id  ]
-  subnet_id       = aws_subnet.public.id
+  subnet_id       = aws_subnet.private.id
 
   tags = {
     Name = "NodeAPI - OnePhrase"  
