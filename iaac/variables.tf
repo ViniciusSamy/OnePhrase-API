@@ -40,11 +40,11 @@ variable keypair_path {
 variable api_servername {
     description = "Servername to used for API"
     type = string
-    default = "onephrase.viniciussamy.tech"
+    default = "onephrase.meu.dominio"
 }
 
 variable "certificate_arn" {
     description = "ARN of certificate used by load balancer for SSL"
     type = string
-    default = "arn:aws:acm:us-east-1:179401021699:certificate/1dbc02e5-2a18-41c7-b3ba-ce2bbfea8640"
+    default = "arn:aws:acm:us-east-1:xxxxxxxxxxxx:certificate/1dbc02e5"
 }
